@@ -1,7 +1,12 @@
 // Register Form
-import React from "react";
+import React, { useContext, useState } from "react";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import { Link } from "react-router-dom";
 
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext);
+  // const [success, setSuccess] = useState(false);
   
   const handleRegister = e => {
     e.preventDefault();
@@ -11,20 +16,28 @@ const Register = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     console.log(name, email, password, photo);
-  } 
-
-  // if (password.length < 6) {
-  //   setErrorMessage('Password should be at least 6 characters');
-  //   return;
-  // }
-    
-  // const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-  //   if (!passwordPattern.test(password)) {
-  //       setErrorMessage('Password must contain at least one uppercase and one lowercase letter');
-  //      return;
-  //   }
 
 
+    createUser(email, password)
+    .then(result =>{
+      console.log(result.user)
+    })
+    .catch(error =>{
+      console.log(error.message)
+    })
+
+    // if (password.length < 6) {
+    //   // setErrorMessage('Password should be at least 6 characters');
+    //   return;
+    // }
+      
+    // const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    //   if (!passwordPattern.test(password)) {
+    //       // setErrorMessage('Password must contain at least one uppercase and one lowercase letter');
+    //      return;
+    //   }
+  };
+  
   return (
     <div className="flex justify-center items-center lg:min-h-screen">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
