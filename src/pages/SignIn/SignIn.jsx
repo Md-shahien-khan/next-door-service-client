@@ -3,10 +3,14 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
+import auth from '../../firebase/firebase.init';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 const SignIn = () => {
     // getting signInUser from authProvider
     const {signInUser} = useContext(AuthContext) 
 
+    // Sign In
     const handleSignIn = e => {
         
         e.preventDefault();
@@ -23,10 +27,20 @@ const SignIn = () => {
             })
             .catch(error => {
                 console.log(error);
-            })
+        });
     };
 
-
+    // Handle Google login
+    const handleSignInGoogle = () => {
+        const provider = new GoogleAuthProvider(); 
+        signInWithPopup(auth, provider)
+            .then(result => {
+            console.log('User info:', result.user);
+            })
+            .catch(error => {
+            console.log('Google login error:', error.message);
+        });
+    };
     return (
         <div className="flex justify-center items-center lg:min-h-screen">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -65,7 +79,7 @@ const SignIn = () => {
             >
             Login
             </button>
-            <button className="mt-5 w-full py-2 px-4 bg-slate-700 text-white font-semibold rounded-md shadow-md hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center justify-center gap-3 text-center"><FaGoogle /> Login with Google
+            <button onClick={handleSignInGoogle} className="mt-5 w-full py-2 px-4 bg-slate-700 text-white font-semibold rounded-md shadow-md hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center justify-center gap-3 text-center"><FaGoogle /> Login with Google
             </button>
           </div>
           <p className="p-4">

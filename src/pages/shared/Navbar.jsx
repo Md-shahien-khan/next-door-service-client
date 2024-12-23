@@ -1,28 +1,74 @@
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext/AuthContext';
+
 
 const Navbar = () => {
     // getting User from authProvider
-    const links = <>
-        <NavLink>Home</NavLink>
-        <NavLink>Services</NavLink>
-        <NavLink to='/signin'>Login</NavLink>
-        {/* Dashboard dropdown */}
-        <div className="dropdown">
-            <NavLink tabIndex={0} className="nav-link">Dashboard</NavLink>
-            <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-                <li><NavLink>Add Service</NavLink></li>
-                <li><NavLink>Manage Service</NavLink></li>
-                <li><NavLink>Booked Services</NavLink></li>
-                <li><NavLink>Service-To-Do</NavLink></li>
-            </ul>
-        </div>
-    </>;
+    const {user, SignOutUser} = useContext(AuthContext);
+
+    // signOut Functionality
+    const handleSignOut = () =>{
+        SignOutUser()
+            .then(() => {
+                console.log('successful Sign Out');
+            })
+            .catch(error => {
+                console.log('Sign Out Unsuccessful')
+            })
+    };
+
+
+
+    const links = 
+    (
+        <>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/'>Services</NavLink></li>
+            {user ? (
+                <>
+                    {/* Dashboard dropdown */}
+                    <div className="dropdown">
+                    <NavLink tabIndex={0} className="nav-link">Dashboard</NavLink>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2">
+                        <li><NavLink>Add Service</NavLink></li>
+                        <li><NavLink>Manage Service</NavLink></li>
+                        <li><NavLink>Booked Services</NavLink></li>
+                        <li><NavLink>Service-To-Do</NavLink></li>
+                    </ul>
+        </div> 
+                </>
+            ) : (
+                <>
+                    <li><NavLink to='/signin'>Sign In</NavLink></li>
+                </>
+            )}
+        </>
+    );
+    
+    
+
+    // <>
+    //     {/* <NavLink>Home</NavLink>
+    //     <NavLink>Services</NavLink>
+    //     <NavLink to='/signin'>Login</NavLink>
+    //     {/* Dashboard dropdown */}
+    //     <div className="dropdown">
+    //         <NavLink tabIndex={0} className="nav-link">Dashboard</NavLink>
+    //         <ul
+    //             tabIndex={0}
+    //             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+    //         >
+    //             <li><NavLink>Add Service</NavLink></li>
+    //             <li><NavLink>Manage Service</NavLink></li>
+    //             <li><NavLink>Booked Services</NavLink></li>
+    //             <li><NavLink>Service-To-Do</NavLink></li>
+    //         </ul>
+    //     </div> 
+    // </>;
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 px-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,7 +101,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/register'><button className='btn'>Register</button></Link>
+                {
+                    user ? <>
+                    <Link to='/register'><button onClick={handleSignOut} className='btn'>Sign out</button></Link>
+                    </> : 
+                    <>
+                    <Link to='/register'><button className='btn'>Register</button></Link>
+                    </>
+                }
             </div>
         </div>
     );
