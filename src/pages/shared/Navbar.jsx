@@ -1,10 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    // getting User from authProvider
     const links = <>
         <NavLink>Home</NavLink>
         <NavLink>Services</NavLink>
-        <NavLink>Login</NavLink>
+        <NavLink to='/signin'>Login</NavLink>
         {/* Dashboard dropdown */}
         <div className="dropdown">
             <NavLink tabIndex={0} className="nav-link">Dashboard</NavLink>
