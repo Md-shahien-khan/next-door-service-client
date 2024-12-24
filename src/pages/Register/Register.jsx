@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
+import img from '../../assets/images/gardener.jpg'
 
 const Register = () => {
 
@@ -39,8 +40,8 @@ const Register = () => {
   };
   
   return (
-    <div className="flex justify-center items-center lg:min-h-screen">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh] flex justify-center items-center lg:min-h-screen" style={{backgroundImage : `url(${img})`}}>
+      <div className="container mx-auto text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Register</h2>
 
         <form onSubmit={handleRegister}>
