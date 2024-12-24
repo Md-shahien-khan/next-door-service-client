@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
 import auth from '../../firebase/firebase.init';
@@ -8,7 +8,10 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const SignIn = () => {
     // getting signInUser from authProvider
-    const {signInUser} = useContext(AuthContext) 
+    const {signInUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate= useNavigate();
+    const from = location.state || '/';
 
     // Sign In
     const handleSignIn = e => {
@@ -23,7 +26,8 @@ const SignIn = () => {
         // Sign In Functionality
         signInUser(email, password)
             .then(result => {
-                console.log('Sign In : ', result.user)
+                console.log('Sign In : ', result.user);
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);
@@ -36,11 +40,13 @@ const SignIn = () => {
         signInWithPopup(auth, provider)
             .then(result => {
             console.log('User info:', result.user);
+            navigate(from)
             })
             .catch(error => {
             console.log('Google login error:', error.message);
         });
     };
+
     return (
         <div className="flex justify-center items-center lg:min-h-screen">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
