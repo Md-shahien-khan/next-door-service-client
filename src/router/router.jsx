@@ -33,8 +33,9 @@ import ServiceDetails from "../pages/serviceDetails/ServiceDetails";
           element : <ViewAllService></ViewAllService>
         },
         {
-          path : '/serviceDetails',
-          element : <ServiceDetails></ServiceDetails>
+          path : '/services/:id',
+          element : <ServiceDetails></ServiceDetails>,
+          loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         }
       ]
     },
