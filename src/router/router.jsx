@@ -11,6 +11,7 @@ import ViewAllService from "../pages/viewAllService/ViewAllService";
 import ServiceDetails from "../pages/serviceDetails/ServiceDetails";
 import PrivateRoute from "./PrivateRoute";
 import BookService from "../pages/BookService/BookService";
+import BookedServices from "../pages/bookedServices/BookedServices";
 
   const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ import BookService from "../pages/BookService/BookService";
         {
           path : '/bookService/:id',
           element : <PrivateRoute><BookService></BookService></PrivateRoute>
+        },
+        {
+          path : '/bookedServices',
+          element : <PrivateRoute><BookedServices></BookedServices></PrivateRoute>
         }
       ]
     },

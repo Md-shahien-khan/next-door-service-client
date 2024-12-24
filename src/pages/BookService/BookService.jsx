@@ -56,7 +56,7 @@ const BookService = ({ singleService, onClose }) => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/');
+                navigate('/bookedServices');
             }
         })
         .catch(error => {
