@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const BookService = ({ singleService, onClose }) => {
-    const { _id, service_name, image_url, price } = singleService;
+    const { _id, service_name, image_url, price, service_provider_email, service_provider_location, service_provider_name } = singleService;
     const {user} = useAuth();
     // console.log(_id, user);
     const navigate = useNavigate();
@@ -75,7 +75,6 @@ const BookService = ({ singleService, onClose }) => {
         <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
                 <h2 className="text-xl font-semibold mb-4">Book Service</h2>
-
                 <form onSubmit={handleSubmitBooking}>
                     {/* Service ID (Not editable) */}
                     <div className="flex items-center mb-4">
@@ -98,13 +97,19 @@ const BookService = ({ singleService, onClose }) => {
                     {/* Provider Email (Not editable) */}
                     <div className="flex items-center mb-4">
                         <label htmlFor="provider-email" className="font-semibold text-gray-700 w-1/3">Provider Email</label>
-                        <input type="email" name="providerEmail"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" disabled />
+                        <input type="email" name="providerEmail" value={service_provider_email} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" disabled />
                     </div>
 
                     {/* Provider Name (Not editable) */}
                     <div className="flex items-center mb-4">
                         <label htmlFor="provider-name" className="font-semibold text-gray-700 w-1/3">Provider Name</label>
-                        <input type="text" name="providerName" value={user?.name} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" disabled />
+                        <input type="text" name="providerName" value={service_provider_name} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" disabled />
+                    </div>
+
+                    {/* Provider Location (Not editable) */}
+                    <div className="flex items-center mb-4">
+                        <label htmlFor="provider-name" className="font-semibold text-gray-700 w-1/3">Provider Location</label>
+                        <input type="text" name="providerName" value={service_provider_location} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" disabled />
                     </div>
 
                     {/* Current User Email (Not editable) */}
@@ -144,7 +149,6 @@ const BookService = ({ singleService, onClose }) => {
                         </button>
                     </div>
                 </form>
-
                 {/* Close Button */}
                 <button onClick={onClose} className="absolute top-0 right-0 p-2 text-white bg-gray-600 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     <span className="text-xl">×</span>

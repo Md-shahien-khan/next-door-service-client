@@ -42,7 +42,7 @@ const Register = () => {
   return (
     <div className="bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh] flex justify-center items-center lg:min-h-screen" style={{backgroundImage : `url(${img})`}}>
       <div className="container mx-auto text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Register</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-green-950">Register</h2>
 
         <form onSubmit={handleRegister}>
           {/* Name */}

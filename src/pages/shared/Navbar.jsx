@@ -31,7 +31,7 @@ const Navbar = () => {
                     <div className="dropdown">
                     <NavLink tabIndex={0} className="nav-link">Dashboard</NavLink>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2">
-                        <li><NavLink>Add Service</NavLink></li>
+                        <li><NavLink to='/addService'>Add Service</NavLink></li>
                         <li><NavLink>Manage Service</NavLink></li>
                         <li><NavLink to='/bookedServices'>Booked Services</NavLink></li>
                         <li><NavLink>Service-To-Do</NavLink></li>
