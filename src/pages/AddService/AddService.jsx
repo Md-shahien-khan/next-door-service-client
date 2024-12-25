@@ -1,27 +1,81 @@
 import React from 'react';
 import imgAddService from '../../assets/images/addService.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 const AddService = () => {
     const {user} = useAuth();
+    const navigate = useNavigate();
+
+    const handleAddService = e =>{
+        e.preventDefault();
+        const formData = new FormData(e.target)
+        const initialData = Object.fromEntries(formData.entries());
+        console.log(initialData);
+        const newServiceData = initialData;
+
+        // fetch('http://localhost:5000/services', {
+        //     method : 'POST',
+        //     headers : {
+        //         'content-type' : 'application/json'
+        //     },
+        //     body : JSON.stringify(newServiceData)
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data)
+        // });
+        axios.post('http://localhost:5000/services', newServiceData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            const data = response.data;
+            if (data.insertedId) {
+                Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Purchased Successfully",
+                showConfirmButton: false,
+                timer: 1500
+                });
+                navigate('/');
+                }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "An error occurred",
+            showConfirmButton: false,
+            timer: 1500
+            });
+        });
+
+    };
+
+
     return (
         <div className='bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh] flex justify-center items-center lg:min-h-screen' style={{backgroundImage : `url(${imgAddService})`}}>
             <div className="container mx-auto text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-2xl font-bold text-center mb-6 text-green-950">Add Service</h2>
-                <form>
+                <form onSubmit={handleAddService}>
                     {/* Service Name*/}
                     <div className="flex items-center mb-4">
                         <label htmlFor="service-name" className="font-semibold text-gray-700 w-1/3">Service Name</label>
-                        <input type="text" name="serviceName" className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500"/>
+                        <input type="text" name="service_name" className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500"/>
                     </div>
                     {/* Service Image  */}
                     <div className="flex items-center mb-4">
                         <label htmlFor="service-image" className="font-semibold text-gray-700 w-1/3">Service Image URL</label>
-                        <input type="url" name="photoURL"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <input type="url" name="image_url"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* price  */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="servipricece-image" className="font-semibold text-gray-700 w-1/3">Price</label>
+                        <label htmlFor="servicePrice-image" className="font-semibold text-gray-700 w-1/3">Price</label>
                         <input type="text" name="price"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* description  */}
@@ -37,32 +91,32 @@ const AddService = () => {
                     {/* reviewCount */}
                     <div className="flex items-center mb-4">
                         <label htmlFor="reviewCount" className="font-semibold text-gray-700 w-1/3">Review Count</label>
-                        <input type="text" name="reviewCount"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <input type="text" name="reviews_count"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* service type */}
                     <div className="flex items-center mb-4">
                         <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
-                        <input type="text" name="serviceType"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <input type="text" name="service_type"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
-                    {/* provider image */}
+                    {/* provider email */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
-                        <input type="text" name="serviceType"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
-                    </div>
-                    {/* provider image */}
-                    <div className="flex items-center mb-4">
-                        <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
-                        <input type="text" name="serviceType"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <label htmlFor="providerEmail" className="font-semibold text-gray-700 w-1/3">Provider Email</label>
+                        <input type='email'  name="service_provider_email" value={user.email}  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* provider name */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
-                        <input type="text" name="serviceType"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <label htmlFor="providerName" className="font-semibold text-gray-700 w-1/3">Provider Name</label>
+                        <input type="text" name="service_provider_name" value={user.displayName} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
-                    {/* provider name */}
+                    {/* provider location */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
-                        <input type="text" name="serviceType"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                        <label htmlFor="providerLocation" className="font-semibold text-gray-700 w-1/3">Provider Location</label>
+                        <input type="text" name="service_provider_location"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
+                    </div>
+                    {/* provider photo */}
+                    <div className="flex items-center mb-4">
+                        <label htmlFor="providerPhoto" className="font-semibold text-gray-700 w-1/3">Provider Photo URL</label>
+                        <input type="url" name="service_provider_photo" value={user.photoURL} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* Submit Button */}
                     <div className="flex justify-center mt-4">
