@@ -11,6 +11,7 @@ const BookedServices = () => {
             .then(res => res.json())
             .then(data =>setBookedService(data))
     }, [user.email]);
+
     return (
         <div className="bg-cover bg-center bg-fixed text-center py-20 flex p-6 justify-center items-center lg:h-[80vh]" style={{backgroundImage : `url(${bookedImg})`}}>
              <div className='container mx-auto text-black bg-slate-600 p-20 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-20'>
@@ -24,6 +25,7 @@ const BookedServices = () => {
                         <th>Service Name</th>
                         <th>Date</th>
                         <th>Price</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,6 +36,14 @@ const BookedServices = () => {
                             <td>{myService.serviceName}</td>
                             <td>{myService.serviceDate}</td>
                             <td>{myService.price}</td>
+                            <td><div className="btn">{myService.service_status}</div></td>
+                        {/* <td>
+                        <select className="select select-bordered select-xs w-full max-w-xs">
+                            <option disabled>Change Status</option>
+                            <option>Working</option>
+                            <option>Completed</option>
+                        </select>
+                        </td>                            */}
                         </tr>)
                     }
                     </tbody>

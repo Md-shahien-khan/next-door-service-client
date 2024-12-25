@@ -38,7 +38,8 @@ const BookService = ({ singleService, onClose }) => {
             currentUserName,
             serviceDate,
             specialInstructions,
-            price
+            price,
+            service_status : 'pending'
         };
 
         axios.post('http://localhost:5000/service-bookings', serviceApplication, {

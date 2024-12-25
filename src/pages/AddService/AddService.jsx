@@ -37,11 +37,11 @@ const AddService = () => {
                 Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Purchased Successfully",
+                title: "Service has been added",
                 showConfirmButton: false,
                 timer: 1500
                 });
-                navigate('/');
+                navigate('/manageServices');
                 }
         })
         .catch(error => {

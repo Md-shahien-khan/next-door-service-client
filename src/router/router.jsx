@@ -13,12 +13,15 @@ import PrivateRoute from "./PrivateRoute";
 import BookService from "../pages/BookService/BookService";
 import BookedServices from "../pages/bookedServices/BookedServices";
 import AddService from "../pages/AddService/AddService";
+import ErrorElement from "../pages/errorElement/ErrorElement";
+import ManageServices from "../pages/ManageServices/ManageServices";
+import ServiceToDo from "../pages/ServiceToDo/ServiceToDo";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element : <MainLayout></MainLayout>,
-      errorElement : <h2>Route Not found</h2>,
+      errorElement : <ErrorElement></ErrorElement>,
       children : [
         {
             path : '/',
@@ -52,7 +55,15 @@ import AddService from "../pages/AddService/AddService";
         {
           path : '/addService',
           element : <PrivateRoute><AddService></AddService></PrivateRoute>
-        }
+        },
+        {
+          path : '/manageServices',
+          element : <PrivateRoute><ManageServices></ManageServices></PrivateRoute>
+        },
+        {
+          path : '/serviceToDo',
+          element : <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>
+        },
       ]
     },
 ]);

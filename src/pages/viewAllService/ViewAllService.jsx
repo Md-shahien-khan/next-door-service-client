@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import AllServicesCard from '../AllServicesCard/AllServicesCard';
+// import AllServicesCard from '../AllServicesCard/AllServicesCard';
+import ViewAllServiceCard from '../viewAllServiceCard/ViewAllServiceCard';
 const ViewAllService = () => {
     const [services, setServices] = useState([]);
 
@@ -14,7 +15,7 @@ const ViewAllService = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 md:gap-y-10 place-items-center'>
             {
                 services.map(service => 
-                <AllServicesCard 
+                <ViewAllServiceCard 
                     key={service._id}
                     service={service}
                 />)
