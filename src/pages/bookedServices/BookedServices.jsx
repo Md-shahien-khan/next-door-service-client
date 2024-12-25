@@ -37,13 +37,6 @@ const BookedServices = () => {
                             <td>{myService.serviceDate}</td>
                             <td>{myService.price}</td>
                             <td><div className="btn">{myService.service_status}</div></td>
-                        {/* <td>
-                        <select className="select select-bordered select-xs w-full max-w-xs">
-                            <option disabled>Change Status</option>
-                            <option>Working</option>
-                            <option>Completed</option>
-                        </select>
-                        </td>                            */}
                         </tr>)
                     }
                     </tbody>
