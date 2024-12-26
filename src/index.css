@@ -8,6 +8,7 @@
 body {
     background-color: white;
     color: black;
+    overflow-x: hidden;
 }
 
 /* Dark mode styles */

@@ -6,10 +6,10 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const UpdateService = () => {
-    const coffee = useLoaderData();
+    const service = useLoaderData();
     const {user} = useAuth();
     const navigate = useNavigate();
-    const {_id, service_name, image_url, price, description, service_provider_email, rating, reviews_count, service_provider_location, service_provider_name, service_provider_photo, service_type} = coffee;
+    const {_id, service_name, image_url, price, description, service_provider_email, rating, reviews_count, service_provider_location, service_provider_name, service_provider_photo, service_type} = service;
     
         const handleUpdateService = e =>{
             e.preventDefault();

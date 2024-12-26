@@ -67,7 +67,7 @@ import UpdateService from "../pages/UpdateService/UpdateService";
         },
         {
           path : '/updateService/:id',
-          element : <UpdateService></UpdateService>,
+          element : <PrivateRoute><UpdateService></UpdateService></PrivateRoute>,
           loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         }
       ]
