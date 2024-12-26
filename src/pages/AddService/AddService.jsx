@@ -61,21 +61,21 @@ const AddService = () => {
     return (
         <div className='bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh] flex justify-center items-center lg:min-h-screen' style={{backgroundImage : `url(${imgAddService})`}}>
             <div className="container mx-auto text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-2xl font-bold text-center mb-6 text-green-950">Add Service</h2>
+                <h2 className="text-2xl font-bold text-center mb-6 text-purple-700 ">Add Service</h2>
                 <form onSubmit={handleAddService}>
                     {/* Service Name*/}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="service-name" className="font-semibold text-gray-700 w-1/3">Service Name</label>
+                        <label htmlFor="service-name" className="font-semibold text-purple-700 w-1/3">Service Name</label>
                         <input type="text" name="service_name" className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500"/>
                     </div>
                     {/* Service Image  */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="service-image" className="font-semibold text-gray-700 w-1/3">Service Image URL</label>
+                        <label htmlFor="service-image" className="font-semibold text-purple-700 w-1/3">Service Image URL</label>
                         <input type="url" name="image_url"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* price  */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="servicePrice-image" className="font-semibold text-gray-700 w-1/3">Price</label>
+                        <label htmlFor="servicePrice-image" className="font-semibold text-purple-700 w-1/3">Price</label>
                         <input type="text" name="price"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* description  */}
@@ -85,42 +85,42 @@ const AddService = () => {
                     </div>
                     {/* rating */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="rating" className="font-semibold text-gray-700 w-1/3">Rating</label>
+                        <label htmlFor="rating" className="font-semibold text-purple-700 w-1/3">Rating</label>
                         <input type="text" name="rating"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* reviewCount */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="reviewCount" className="font-semibold text-gray-700 w-1/3">Review Count</label>
+                        <label htmlFor="reviewCount" className="font-semibold text-purple-700 w-1/3">Review Count</label>
                         <input type="text" name="reviews_count"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* service type */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="ServiceType" className="font-semibold text-gray-700 w-1/3">Service Type</label>
+                        <label htmlFor="ServiceType" className="font-semibold text-purple-700 w-1/3">Service Type</label>
                         <input type="text" name="service_type"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* provider email */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="providerEmail" className="font-semibold text-gray-700 w-1/3">Provider Email</label>
+                        <label htmlFor="providerEmail" className="font-semibold text-purple-700 w-1/3">Provider Email</label>
                         <input type='email'  name="service_provider_email" value={user.email}  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* provider name */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="providerName" className="font-semibold text-gray-700 w-1/3">Provider Name</label>
+                        <label htmlFor="providerName" className="font-semibold text-purple-700 w-1/3">Provider Name</label>
                         <input type="text" name="service_provider_name" value={user.displayName} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* provider location */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="providerLocation" className="font-semibold text-gray-700 w-1/3">Provider Location</label>
+                        <label htmlFor="providerLocation" className="font-semibold text-purple-700 w-1/3">Provider Location</label>
                         <input type="text" name="service_provider_location"  className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* provider photo */}
                     <div className="flex items-center mb-4">
-                        <label htmlFor="providerPhoto" className="font-semibold text-gray-700 w-1/3">Provider Photo URL</label>
+                        <label htmlFor="providerPhoto" className="font-semibold text-purple-700 w-1/3">Provider Photo URL</label>
                         <input type="url" name="service_provider_photo" value={user.photoURL} className="w-2/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500" />
                     </div>
                     {/* Submit Button */}
                     <div className="flex justify-center mt-4">
-                        <button type="submit" className="px-6 py-2 bg-orange-500 text-white font-semibold rounded-md hover:bg-pink-500">
+                        <button type="submit" className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-md hover:bg-pink-500">
                             Post Service
                         </button>
                     </div>

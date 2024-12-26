@@ -15,10 +15,10 @@ const BookedServices = () => {
 
     return (
         <div
-            className="bg-cover bg-center bg-fixed text-center py-20 flex p-6 justify-center items-center lg:h-[80vh]"
+            className="bg-cover bg-center bg-fixed text-center py-20 flex p-6 justify-center items-center lg:h-[auto]"
             style={{ backgroundImage: `url(${bookedImg})` }}
         >
-            <div className="container mx-auto text-black bg-slate-600 p-20 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-20">
+            <div className="container mx-auto text-black bg-slate-600 p-20 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-20 ">
                 <h2 className="text-3xl">Booked Services : {bookedService.length}</h2>
                 {bookedService.length === 0 ? (
                     <div className="mt-5 text-lg text-white">
