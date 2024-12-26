@@ -43,7 +43,7 @@ const ReviewsClients = () => {
 
     return (
         <div className="mb-16 mt-10 lg:mt-32">
-            <h2 className="text-center text-4xl  font-semibold mb-20 text-gray-800 text-purple-500">What Our Clients Say</h2>
+            <h2 className="text-center text-4xl  font-semibold mb-20 text-purple-500">What Our Clients Say</h2>
             <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-4">
                 {reviews.map((review, index) => (
                     <div key={index} className="bg-white p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl">
