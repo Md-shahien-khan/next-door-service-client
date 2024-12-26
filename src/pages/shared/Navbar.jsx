@@ -172,8 +172,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                <img className='w-10 hidden md:block' src={logo} alt="" />
-                <a className="btn btn-ghost text-sm md:text-xl text-white hover:text-yellow-500 transition duration-300">NEXT DOOR SERVICE</a>
+                <Link to='/'><img className='w-10 hidden md:block' src={logo} alt="" /></Link>
+                <Link to ='/'>
+                <button className="btn btn-ghost text-sm md:text-xl text-white hover:text-yellow-500 transition duration-300">NEXT DOOR SERVICE</button>
+                </Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
