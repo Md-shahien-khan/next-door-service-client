@@ -45,10 +45,12 @@ const AllServices = () => {
     };
 
     return (
-        <div className='w-11/12 mx-auto border'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 md:gap-y-10 place-items-center'>
+        <div className='w-11/12 mx-auto mt-10 lg:mt-36'>
+            <h2 className='text-4xl text-center font-bold'>Our Services</h2>
+            <p className='text-center'>We are always there for you</p>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 md:gap-y-10 place-items-center mt-10 gap-y-5'>
                 {
-                    services.slice(0, 10).map(service => 
+                    services.slice(0, 6).map(service => 
                     <AllServicesCard 
                         key={service._id}
                         service={service}
@@ -57,10 +59,10 @@ const AllServices = () => {
             </div>
 
             {/* Button to navigate to the "All Services" page */}
-            <div className="mt-4 text-center">
+            <div className="mt-10 text-center">
                 <button 
                     onClick={navigateToAllServices} 
-                    className="bg-green-500 text-white px-4 py-2 rounded">
+                    className="btn bg-gradient-to-r from-blue-500 to-purple-600 dark:from-gray-700 dark:to-gray-800 hover:from-pink-500 hover:to-orange-500 text-white py-2 px-6 rounded-full text-lg hover:transition duration-300 ease-out mt-8 lg:mt-20">
                     Go to All Services Page
                 </button>
             </div>

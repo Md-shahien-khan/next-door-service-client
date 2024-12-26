@@ -104,7 +104,7 @@ const ServiceDetails = () => {
                 </div>
                 <button
                     onClick={handleOpenModal}
-                    className="btn bg-orange-500 hover:bg-pink-500 text-white py-2 px-6 rounded-full text-lg hover:transition duration-300 ease-out">
+                    className="btn bg-gradient-to-r from-blue-500 to-purple-600 dark:from-gray-700 dark:to-gray-800 hover:from-pink-500 hover:to-orange-500 text-white py-2 px-6 rounded-full text-lg hover:transition duration-300 ease-out">
                     Book Now
                 </button>
             </div>

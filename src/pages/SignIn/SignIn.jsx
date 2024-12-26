@@ -50,11 +50,11 @@ const SignIn = () => {
     return (
       <div className="bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh]    flex justify-center items-center lg:min-h-screen" style={{backgroundImage : `url(${signInImg})`}}>
         <div className="text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Sign In</h2>
+          <h2 className="text-xl md:text-4xl text-purple-500 font-bold text-center mb-6">Sign In</h2>
           <form onSubmit={handleSignIn}>
               {/* Email */}
               <div className="mb-4">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-purple-500">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -66,7 +66,7 @@ const SignIn = () => {
               </div>
               {/* Password */}
               <div className="mb-4">
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+                <label htmlFor="password" className="block text-sm font-medium text-purple-500">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -87,8 +87,8 @@ const SignIn = () => {
                 <button onClick={handleSignInGoogle} className="mt-5 w-full py-2 px-4 bg-slate-700 text-white font-semibold rounded-md shadow-md hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center justify-center gap-3 text-center"><FaGoogle /> Login with Google
                 </button>
               </div>
-              <p className="p-4">
-                Need to open an account? Please <Link to="/register" className="text-green-800 font-bold">Register</Link></p>
+              <p className="p-4 text-purple-500 font-bold">
+                Need to open an account? Please <Link to="/register" className="text-blue-600 font-bold">Register</Link></p>
           </form>
         </div>
       </div>

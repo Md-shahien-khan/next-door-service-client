@@ -1,3 +1,17 @@
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: [
+//     "./index.html",
+//     "./src/**/*.{js,ts,jsx,tsx}",
+//   ],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [
+//     require('daisyui'),
+//   ],
+// }
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -5,10 +19,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        "poppins" : ["poppins", "serif"] 
+      }
+    },
   },
   plugins: [
     require('daisyui'),
   ],
+  darkMode: 'class',  // Enable class-based dark mode
 }
-

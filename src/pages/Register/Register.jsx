@@ -4,6 +4,7 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
 import img from '../../assets/images/gardener.jpg'
 
+
 const Register = () => {
 
   const {createUser} = useContext(AuthContext);
@@ -27,27 +28,17 @@ const Register = () => {
       console.log(error.message)
     })
 
-    // if (password.length < 6) {
-    //   // setErrorMessage('Password should be at least 6 characters');
-    //   return;
-    // }
-      
-    // const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    //   if (!passwordPattern.test(password)) {
-    //       // setErrorMessage('Password must contain at least one uppercase and one lowercase letter');
-    //      return;
-    //   }
   };
   
   return (
     <div className="bg-cover bg-center bg-fixed text-center py-20 p-6 lg:h-[80vh] flex justify-center items-center lg:min-h-screen" style={{backgroundImage : `url(${img})`}}>
       <div className="container mx-auto text-black bg-slate-600 p-8 z-0 lg:w-1/2 backdrop-filter backdrop-blur-lg bg-opacity-10  rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-green-950">Register</h2>
+        <h2 className="text-xl md:text-4xl text-purple-800 font-bold text-center mb-6">Register</h2>
 
         <form onSubmit={handleRegister}>
           {/* Name */}
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+            <label htmlFor="name" className="block text-sm font-medium text-purple-800">Name</label>
             <input
               type="text"
               id="name"
@@ -60,7 +51,7 @@ const Register = () => {
 
           {/* Email */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium text-purple-800">Email</label>
             <input
               type="email"
               id="email"
@@ -73,7 +64,7 @@ const Register = () => {
 
           {/* Password */}
           <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <label htmlFor="password" className="block text-sm font-medium text-purple-800">Password</label>
             <input
               type="password"
               id="password"
@@ -86,7 +77,7 @@ const Register = () => {
 
           {/* Photo URL */}
           <div className="mb-4">
-            <label htmlFor="photo" className="block text-sm font-medium text-gray-700">Photo URL</label>
+            <label htmlFor="photo" className="block text-sm font-medium text-purple-800">Photo URL</label>
             <input
               type="url"
               id="photo"
@@ -105,8 +96,8 @@ const Register = () => {
             Register
             </button>
           </div>
-          <p className="p-4">
-            Already have an account? Please <Link to="/signin" className="text-green-800 font-bold">Sign In</Link></p>
+          <p className="p-4 text-purple-300 font-bold">
+            Already have an account? Please <Link to="/signin" className="text-green-500 font-bold">Sign In</Link></p>
         </form>
       </div>
     </div>
